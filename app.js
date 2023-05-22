@@ -30,46 +30,61 @@ function start() {
 	for(snake of snakes){snake.init();}
 	window.addEventListener('keydown', function(e){canvas.key=e.keyCode; restart=e.keyCode;});
 	window.addEventListener('keyup', function (e) {canvas.key = false;});
-	window.addEventListener('load', function(){
-		swipedetect(el, function(swipedir){
-			if(swipedir == 'right'){canvas.key=39}
-			if(swipedir == 'left'){canvas.key=37}
-			if(swipedir == 'down'){canvas.key=40}
-			if(swipedir == 'top'){canvas.key=38}
-   })}, false);
-window.addEventListener('touchstart', function(event) {
-    touchstartX = event.screenX;
-    touchstartY = event.screenY;
-}, false);
+// 	window.addEventListener('load', function(){
+// 		swipedetect(el, function(swipedir){
+// 			if(swipedir == 'right'){canvas.key=39}
+// 			if(swipedir == 'left'){canvas.key=37}
+// 			if(swipedir == 'down'){canvas.key=40}
+// 			if(swipedir == 'top'){canvas.key=38}
+//    })}, false);
+// window.addEventListener('touchstart', function(event) {
+//     touchstartX = event.screenX;
+//     touchstartY = event.screenY;
+// }, false);
 
-window.addEventListener('touchend', function(event) {
-    touchendX = event.screenX;
-    touchendY = event.screenY;
-    handleGesure();
-}, false); 
+// window.addEventListener('touchend', function(event) {
+//     touchendX = event.screenX;
+//     touchendY = event.screenY;
+//     handleGesure();
+// }, false); 
 
-function handleGesure() {
-    var swiped = 'swiped: ';
-    if (touchendX < touchstartX) {
-        // alert(swiped + 'left!');
-    	canvas.key=37
-    }
-    if (touchendX > touchstartX) {
-        // alert(swiped + 'right!');\
-    	canvas.key=39
-    }
-    if (touchendY < touchstartY) {
-        // alert(swiped + 'down!');
-    	canvas.key=40
-    }
-    if (touchendY > touchstartY) {
-        // alert(swiped + 'left!');
-    	canvas.key=38
-    }
-    if (touchendY == touchstartY) {
-        // alert('tap!');
-    }
-}
+// function handleGesure() {
+//     var swiped = 'swiped: ';
+//     if (touchendX < touchstartX) {
+//         // alert(swiped + 'left!');
+//     	canvas.key=37
+//     }
+//     if (touchendX > touchstartX) {
+//         // alert(swiped + 'right!');\
+//     	canvas.key=39
+//     }
+//     if (touchendY < touchstartY) {
+//         // alert(swiped + 'down!');
+//     	canvas.key=40
+//     }
+//     if (touchendY > touchstartY) {
+//         // alert(swiped + 'left!');
+//     	canvas.key=38
+//     }
+//     if (touchendY == touchstartY) {
+//         // alert('tap!');
+//     }
+// }
+	document.addEventListener('swiped-left', function(e) {
+		canvas.key=37
+	});
+	// swiped-right
+	document.addEventListener('swiped-right', function(e) {
+		canvas.key=39
+	});
+	// swiped-up
+	document.addEventListener('swiped-up', function(e) {
+		canvas.key=38
+	});
+	// swiped-down
+	document.addEventListener('swiped-down', function(e) {
+		canvas.key=40
+	});
 	interval = setTimeout(refresh,speed);
 	
 }
