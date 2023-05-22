@@ -98,12 +98,7 @@ window.addEventListener('touchstart', function(event) {
 window.addEventListener('touchend', function(event) {
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
-	if (touchX === endTouchX && touchY === endTouchY) {
-        // Touch event detected (no swipe)
-        // Perform your desired action here
-        canvas.key=32;
-    }else{
-    handleGesture();}
+    handleGesture();
 }, false);
 
 function handleGesture() {
@@ -125,6 +120,10 @@ function handleGesture() {
         } else {
             canvas.key = 38; // Up arrow key
         }
+    }else if (touchX === endTouchX && touchY === endTouchY) {
+        // Touch event detected (no swipe)
+        // Perform your desired action here
+        canvas.key=32;
     }
 }
 	interval = setTimeout(refresh,speed);
