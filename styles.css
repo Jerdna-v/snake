@@ -1,0 +1,131 @@
+a{
+	text-decoration: none;
+	color: #92c000;
+}
+body{
+	margin-top: 3em;
+	background: #92c000;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 1%;
+}
+.container{
+	font-size: 6em;
+	font-family: nokia;
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+	position: absolute;
+
+	animation-name: letters;
+	animation-iteration-count: 1;
+	animation-duration: 7s;
+}
+table{
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	animation-name: snake;
+	animation-iteration-count: 1;
+	animation-duration: 4s;
+}
+td{
+	position: relative;
+	animation-name: border;
+	animation-iteration-count: 1;
+	animation-duration: 6s;
+	animation-delay: 0s;
+	text-align: center;
+	width: 2em;
+	height: 2em;
+
+}
+#snake-head{
+	border-radius: 0% 30% 30% 0%;
+
+}
+#snake-tail{
+	border-radius: 30% 0% 0% 30%;
+}
+
+#eye1{
+	height: 0.2em;
+	width: 0.2em;
+	display: flex;
+	margin-left: 60%;
+
+	animation-name: backgroundA;
+	animation-iteration-count: 1;
+	animation-duration: 5.5s;
+}
+#eye2{
+	height: 0.2em;
+	width: 0.2em;
+	display: flex;
+	margin-left: 60%;
+	margin-top: 0.5em;
+
+	animation-name: backgroundA;
+	animation-iteration-count: 1;
+	animation-duration: 5.5s;
+}
+
+@keyframes snake{
+	from{
+		left: -100%;
+	}
+	to{
+		left: 0%;
+	}
+}
+@keyframes backgroundA{
+	0%, 70%{
+		background-color: #1d3b00;
+	}
+	100%{
+		background-color: none;
+	}
+}
+@keyframes border{
+	0%, 75%{
+		border: 0.15em dashed #1d3b00;
+	}
+	100%{
+		border: none;
+	}
+}
+@keyframes letters{
+	0%,75%{
+		font-size: 3.5em;
+		
+	}	
+	100%{
+		font-size: 6em;
+	}
+}
+
+.retro_menu{
+	width: 100%;
+	margin-top: 12.5em;
+	position: absolute;
+}
+.retro_button{
+	margin-top: 2em;
+	width: 100%;
+	height: 7.5em;
+	background: black;
+	align-items:center;
+	display: flex;
+	margin-bottom: 2em;
+	justify-content: center;
+}
+.retro_button:hover, a:hover{
+	background-color: #1d3b00;
+}
+.retro_button_text{
+	font-family: nokia;
+	font-size: 2.5em;
+	color: #97c503;
+}

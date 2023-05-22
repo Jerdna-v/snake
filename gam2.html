@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
+	<title>Snake</title>
+	<link rel="shortcut icon" href="icon.webp">
+</head>
+<body onload="start1()" >
+
+	<div class="container" >
+		<div id="lost" class='notification'	style="margin-top: 25vh;">Game Over<br><br> Press SPACE to restart </div>
+			<div class="canvases">
+				<div class="col">
+					<div id="lost1" class='notification'>Snake1 hit</div>
+					<canvas id="canvas1"></canvas>
+				</div>
+				<div class="col">
+					<div id="lost2" class='notification'	>Snake2 hit</div>
+					<canvas id="canvas2"></canvas>
+				</div>
+			</div>
+
+		<div class="flex">
+			<div class="col">
+				<div class="your_score">
+					<span class="score_text" id='score1'>Player1 score: 0</span>
+				</div>
+			</div>
+			<div class="col">
+				<span class="time_text" id="timer1">00:00:00</span>
+			</div>
+			<div class="col">
+				<div class="high_score">
+					<span class="score_text" id='score2'>Player2 score: 0</span>
+				</div>
+			</div>
+			<div class="col">
+				<span class="time_text" id="timer2">00:00:00</span>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="app1.js"></script>
+
+</body>
+</html>

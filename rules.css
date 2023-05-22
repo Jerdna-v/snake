@@ -1,0 +1,112 @@
+body{
+	background: #92c000;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 2.5%;
+	overflow: hidden;
+}
+.retro_menu{
+	width: 100%;
+}
+.retro_button{
+	width: 100%;
+	height: 7.5em;
+	background: black;
+	align-items:center;
+	display: grid;
+	justify-content: center;
+	margin: auto;
+}
+.retro_button_text{
+	font-family: nokia;
+	font-size: 2.5em;
+	color: #97c503;
+}
+.snake_title{
+	border: 0.5em dashed #1d3b00 ;
+	width: 6%;
+	height: 6em;
+	display: inline-block;
+	margin: 0.25em;
+}
+#snake_body{
+	width: 70%;
+	height: inherit;
+}
+.snake_title_letter{
+	padding: 0.1em;
+	font-size: 1.5em;
+	font-family: nokia;
+	text-align: center;
+	display: flex;
+ 	justify-content: center;
+  	align-items: center;
+}
+.snake_title_letter_right{
+	padding: 0.1em;
+	font-size: 1.5em;
+	font-family: nokia;
+	justify-content: center;
+	transform: rotate(180deg);
+	text-align: center;
+	display: flex;
+ 	justify-content: center;
+  	align-items: center;
+}
+#snake_tail{
+	border-radius: 30% 0% 0% 30%;
+	height: inherit;
+}
+#snake_head{
+	border-radius: 0% 30% 30% 0%;
+	height:inherit;
+}
+.snake_title_container{
+	justify-content: center;
+	width: 100%;
+	flex-wrap: wrap;
+	display: flex;
+	position: relative;
+}
+.container{
+	margin-top: 1.5%;
+	justify-content: center;
+	flex-wrap: wrap;
+	position: relative;
+	display: flex;
+	animation-name: snake;
+	animation-iteration-count: 1;
+	animation-duration: 4s;
+	width: 100%;
+}
+
+.container_right{
+	transform: rotate(180deg);
+	margin-top: 1.5%;
+	justify-content: center;
+	flex-wrap: wrap;
+	display: flex;
+	position: relative;
+	animation-name: right;
+	animation-iteration-count: 1;
+	animation-duration: 4s;
+	width: 100%;
+}
+@keyframes snake{
+	from{
+
+		left: -100%;
+	}
+	to{
+		left: 0%;
+	}
+}
+@keyframes right{
+	from{
+
+		right: -100%;
+	}
+	to{
+		right: 0%;
+	}
+}
