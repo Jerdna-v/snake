@@ -105,8 +105,11 @@ function handleGesture() {
     var swiped = 'swiped: ';
     var deltaX = touchendX - touchstartX;
     var deltaY = touchendY - touchstartY;
-
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+	if (touchX === endTouchX && touchY === endTouchY) {
+        // Touch event detected (no swipe)
+        // Perform your desired action here
+        canvas.key=32;
+    }else  if (Math.abs(deltaX) > Math.abs(deltaY)) {
         // Horizontal swipe
         if (deltaX > 0) {
             canvas.key = 39; // Right arrow key
@@ -120,11 +123,6 @@ function handleGesture() {
         } else {
             canvas.key = 38; // Up arrow key
         }
-    }else if (touchX === endTouchX && touchY === endTouchY) {
-        // Touch event detected (no swipe)
-        // Perform your desired action here
-        canvas.key=32;
-    }
 }
 	interval = setTimeout(refresh,speed);
 	
