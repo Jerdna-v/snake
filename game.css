@@ -72,7 +72,9 @@ canvas, #canvas{
  	justify-content: center;
   	align-items: center;
 }
-body{
+html, body{
+	position: relative;
+	height: 100%;
 	Margin: 2% 2% 0% 2%;
 	background: #97c503;
 	display: flex;
