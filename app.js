@@ -104,10 +104,10 @@ window.addEventListener('touchend', function(event) {
 function handleGesture() {
     var swiped = 'swiped: ';
     if (touchendX < touchstartX) {
-        canvas.key = 39; // Right arrow key
+        canvas.key = 37; // Right arrow key
     }
     else if (touchendX > touchstartX) {
-        canvas.key = 37; // Left arrow key
+        canvas.key = 39; // Left arrow key
     }
     else if (touchendY < touchstartY) {
         canvas.key = 38; // Up arrow key
