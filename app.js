@@ -70,21 +70,52 @@ function start() {
 //         // alert('tap!');
 //     }
 // }
-	document.addEventListener('swiped-left', function(e) {
-		canvas.key=37
-	});
-	// swiped-right
-	document.addEventListener('swiped-right', function(e) {
-		canvas.key=39
-	});
-	// swiped-up
-	document.addEventListener('swiped-up', function(e) {
-		canvas.key=38
-	});
-	// swiped-down
-	document.addEventListener('swiped-down', function(e) {
-		canvas.key=40
-	});
+// 	document.addEventListener('swiped-left', function(e) {
+// 		canvas.key=37
+// 	});
+// 	// swiped-right
+// 	document.addEventListener('swiped-right', function(e) {
+// 		canvas.key=39
+// 	});
+// 	// swiped-up
+// 	document.addEventListener('swiped-up', function(e) {
+// 		canvas.key=38
+// 	});
+// 	// swiped-down
+// 	document.addEventListener('swiped-down', function(e) {
+// 		canvas.key=40
+// 	});
+		var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+window.addEventListener('touchstart', function(event) {
+    touchstartX = event.touches[0].screenX;
+    touchstartY = event.touches[0].screenY;
+}, false);
+
+window.addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesture();
+}, false);
+
+function handleGesture() {
+    var swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        canvas.key = 37; // Left arrow key
+    }
+    if (touchendX > touchstartX) {
+        canvas.key = 39; // Right arrow key
+    }
+    if (touchendY < touchstartY) {
+        canvas.key = 38; // Up arrow key
+    }
+    if (touchendY > touchstartY) {
+        canvas.key = 40; // Down arrow key
+    }
+}
 	interval = setTimeout(refresh,speed);
 	
 }
