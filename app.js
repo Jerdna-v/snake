@@ -38,7 +38,7 @@ function start() {
 			if(swipedir == 'down'){canvas.key=40}else{canvas.key=false}
 			if(swipedir == 'top'){canvas.key=38}else{canvas.key=false}
     // swipedir contains either "none", "left", "right", "top", or "down"
-   }})
+   })}, false)}
 }
 
 function time() {
