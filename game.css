@@ -76,7 +76,7 @@ body{
 	Margin: 2% 2% 0% 2%;
 	background: #97c503;
 	display: flex;
-
+	overflow: hidden;
 }
 hr{
 	margin: 0;
