@@ -98,7 +98,12 @@ window.addEventListener('touchstart', function(event) {
 window.addEventListener('touchend', function(event) {
     touchendX = event.changedTouches[0].screenX;
     touchendY = event.changedTouches[0].screenY;
-    handleGesture();
+	if (touchX === endTouchX && touchY === endTouchY) {
+        // Touch event detected (no swipe)
+        // Perform your desired action here
+        canvas.key=32;
+    }else{
+    handleGesture();}
 }, false);
 
 function handleGesture() {
