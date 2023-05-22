@@ -20,6 +20,47 @@ var face = 'none';
 
 window.addEventListener('resize', windowResize());
 
+// Touch Event Listeners
+var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+window.addEventListener('touchstart', function (event) {
+  touchstartX = event.touches[0].screenX;
+  touchstartY = event.touches[0].screenY;
+}, false);
+
+window.addEventListener('touchend', function (event) {
+  touchendX = event.changedTouches[0].screenX;
+  touchendY = event.changedTouches[0].screenY;
+  handleGesture();
+}, false);
+
+function handleGesture() {
+  var deltaX = touchendX - touchstartX;
+  var deltaY = touchendY - touchstartY;
+  if (touchstartX === touchendX && touchstartY === touchendY) {
+    // Touch event detected (no swipe)
+    // Perform your desired action here
+    canvas.key = 32; // Space key
+  } else if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // Horizontal swipe
+    if (deltaX > 0) {
+      canvas.key = 39; // Right arrow key
+    } else {
+      canvas.key = 37; // Left arrow key
+    }
+  } else {
+    // Vertical swipe
+    if (deltaY > 0) {
+      canvas.key = 40; // Down arrow key
+    } else {
+      canvas.key = 38; // Up arrow key
+    }
+  }
+}
+
 function start() {
 	windowResize();
 	your=0;
@@ -85,45 +126,45 @@ function start() {
 // 	document.addEventListener('swiped-down', function(e) {
 // 		canvas.key=40
 // 	});
-		var touchstartX = 0;
-var touchstartY = 0;
-var touchendX = 0;
-var touchendY = 0;
+// 		var touchstartX = 0;
+// var touchstartY = 0;
+// var touchendX = 0;
+// var touchendY = 0;
 
-window.addEventListener('touchstart', function(event) {
-    touchstartX = event.touches[0].screenX;
-    touchstartY = event.touches[0].screenY;
-}, false);
+// window.addEventListener('touchstart', function(event) {
+//     touchstartX = event.touches[0].screenX;
+//     touchstartY = event.touches[0].screenY;
+// }, false);
 
-window.addEventListener('touchend', function(event) {
-    touchendX = event.changedTouches[0].screenX;
-    touchendY = event.changedTouches[0].screenY;
-    handleGesture();
-}, false);
+// window.addEventListener('touchend', function(event) {
+//     touchendX = event.changedTouches[0].screenX;
+//     touchendY = event.changedTouches[0].screenY;
+//     handleGesture();
+// }, false);
 
-function handleGesture() {
-    var swiped = 'swiped: ';
-    var deltaX = touchendX - touchstartX;
-    var deltaY = touchendY - touchstartY;
-	if (touchX === endTouchX && touchY === endTouchY) {
-        // Touch event detected (no swipe)
-        // Perform your desired action here
-        canvas.key=32;
-    }else  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        // Horizontal swipe
-        if (deltaX > 0) {
-            canvas.key = 39; // Right arrow key
-        } else {
-            canvas.key = 37; // Left arrow key
-        }
-    } else {
-        // Vertical swipe
-        if (deltaY > 0) {
-            canvas.key = 40; // Down arrow key
-        } else {
-            canvas.key = 38; // Up arrow key
-        }
-}
+// function handleGesture() {
+//     var swiped = 'swiped: ';
+//     var deltaX = touchendX - touchstartX;
+//     var deltaY = touchendY - touchstartY;
+// 	if (touchX === endTouchX && touchY === endTouchY) {
+//         // Touch event detected (no swipe)
+//         // Perform your desired action here
+//         canvas.key=32;
+//     }else  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+//         // Horizontal swipe
+//         if (deltaX > 0) {
+//             canvas.key = 39; // Right arrow key
+//         } else {
+//             canvas.key = 37; // Left arrow key
+//         }
+//     } else {
+//         // Vertical swipe
+//         if (deltaY > 0) {
+//             canvas.key = 40; // Down arrow key
+//         } else {
+//             canvas.key = 38; // Up arrow key
+//         }
+// }
 	interval = setTimeout(refresh,speed);
 	
 }
