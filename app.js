@@ -31,13 +31,14 @@ function start() {
 	window.addEventListener('keydown', function(e){canvas.key=e.keyCode; restart=e.keyCode;});
 	window.addEventListener('keyup', function (e) {canvas.key = false;});
 	interval = setTimeout(refresh,speed);
-	swipedetect(canvas, function(swipedir){
-		if(swipedir == 'right'){canvas.key=39}else{canvas.key=false}
-		if(swipedir == 'left'){canvas.key=37}else{canvas.key=false}
-		if(swipedir == 'down'){canvas.key=40}else{canvas.key=false}
-		if(swipedir == 'top'){canvas.key=38}else{canvas.key=false}
+	window.addEventListener('load', function(){
+		swipedetect(el, function(swipedir){
+			if(swipedir == 'right'){canvas.key=39}else{canvas.key=false}
+			if(swipedir == 'left'){canvas.key=37}else{canvas.key=false}
+			if(swipedir == 'down'){canvas.key=40}else{canvas.key=false}
+			if(swipedir == 'top'){canvas.key=38}else{canvas.key=false}
     // swipedir contains either "none", "left", "right", "top", or "down"
-   })
+   }})
 }
 
 function time() {
