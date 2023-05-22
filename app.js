@@ -103,18 +103,24 @@ window.addEventListener('touchend', function(event) {
 
 function handleGesture() {
     var swiped = 'swiped: ';
-    if (touchendX < touchstartX) {
-        canvas.key = 37; // Right arrow key
+    var deltaX = touchendX - touchstartX;
+    var deltaY = touchendY - touchstartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Horizontal swipe
+        if (deltaX > 0) {
+            canvas.key = 39; // Right arrow key
+        } else {
+            canvas.key = 37; // Left arrow key
+        }
+    } else {
+        // Vertical swipe
+        if (deltaY > 0) {
+            canvas.key = 40; // Down arrow key
+        } else {
+            canvas.key = 38; // Up arrow key
+        }
     }
-    else if (touchendX > touchstartX) {
-        canvas.key = 39; // Left arrow key
-    }
-    else if (touchendY < touchstartY) {
-        canvas.key = 38; // Up arrow key
-    }
-    else if (touchendY > touchstartY) {
-        canvas.key = 40; // Down arrow key
-    }else{canvas.key=false}
 }
 	interval = setTimeout(refresh,speed);
 	
