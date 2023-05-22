@@ -37,6 +37,39 @@ function start() {
 			if(swipedir == 'down'){canvas.key=40}
 			if(swipedir == 'top'){canvas.key=38}
    })}, false);
+	canvas.addEventListener('touchstart', function(event) {
+    touchstartX = event.screenX;
+    touchstartY = event.screenY;
+}, false);
+
+canvas.addEventListener('touchend', function(event) {
+    touchendX = event.screenX;
+    touchendY = event.screenY;
+    handleGesure();
+}, false); 
+
+function handleGesure() {
+    var swiped = 'swiped: ';
+    if (touchendX < touchstartX) {
+        // alert(swiped + 'left!');
+    	canvas.key=37
+    }
+    if (touchendX > touchstartX) {
+        // alert(swiped + 'right!');\
+    	canvas.key=39
+    }
+    if (touchendY < touchstartY) {
+        // alert(swiped + 'down!');
+    	canvas.key=40
+    }
+    if (touchendY > touchstartY) {
+        // alert(swiped + 'left!');
+    	canvas.key=38
+    }
+    if (touchendY == touchstartY) {
+        // alert('tap!');
+    }
+}
 	interval = setTimeout(refresh,speed);
 	
 }
