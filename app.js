@@ -32,10 +32,10 @@ function start() {
 	window.addEventListener('keyup', function (e) {canvas.key = false;});
 	window.addEventListener('load', function(){
 		swipedetect(el, function(swipedir){
-			if(swipedir == 'right'){canvas.key=39}else{canvas.key=false}
-			if(swipedir == 'left'){canvas.key=37}else{canvas.key=false}
-			if(swipedir == 'down'){canvas.key=40}else{canvas.key=false}
-			if(swipedir == 'top'){canvas.key=38}else{canvas.key=false}
+			if(swipedir == 'right'){canvas.key=39}
+			if(swipedir == 'left'){canvas.key=37}
+			if(swipedir == 'down'){canvas.key=40}
+			if(swipedir == 'top'){canvas.key=38}
    })}, false);
 	interval = setTimeout(refresh,speed);
 	
