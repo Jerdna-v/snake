@@ -155,6 +155,16 @@ function Snake(x,y){
 	this.init=function(){
 		this.x = canvas.width/5+this.x;
 		this.y = canvas.height/2+this.y;
+		var hit=true
+		while(hit){
+		for(let ob of obs){
+		    if ((this.y+size < ob.y) ||
+		    (this.y > ob.y+ob.h) ||
+		    (this.x+size < ob.x) ||
+		    (this.x > ob.x+ob.w)) {hit=false;}
+		    	else{obs=[new Obstacle(500,50), new Obstacle(50,500), new Obstacle(200,200)];}
+		}
+	}
 	}
 	this.update = function(){
 		context.fillStyle='#1d3b00';
@@ -222,6 +232,16 @@ function Apple(w,h){
 	this.spawn = function(){
 		context.fillStyle='red';
 		context.fillRect(this.x,this.y,this.w,this.h);
+		var appleHit=true
+		while(appleHit){
+		for(let ob of obs){
+		    if ((this.y+h < ob.y) ||
+		    (this.y > ob.y+ob.h) ||
+		    (this.x+w < ob.x) ||
+		    (this.x > ob.x+ob.w)) {appleHit=false;}
+		    	else{apple.spawn;}
+		}
+	}
 	}
 }
 function refresh(){
